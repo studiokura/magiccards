@@ -28,7 +28,7 @@ void setup() {
   xml = loadXML("cards.xml");
   XML carddb = xml.getChild("cards");
   cards = carddb.getChildren("card");
-  println("Total cards in database" cards.length);
+  println("Total cards in database: " + cards.length);
   
   hand.add(new RealCard("Naturalize"));
   hand.add(new RealCard("Forest"));

@@ -9,7 +9,6 @@ class RealCard {
     muid = 0;
     for (int i = 0; i < cards.length; i++) {
       //int id = cards[i].getChild("set").getInt("muId");
-      String coloring = cards[i].getChild("manacost").getContent();
       String name = cards[i].getChild("name").getContent();
       //println(i + " of " + cards.length + ": checking for a match for " + _name + " in " + name + "...");
       if (name.equals(_name)) {
@@ -37,7 +36,6 @@ class RealCard {
         }
         break;
       }
-      //println(", " + coloring + ", " + name);
     }
   }
 
