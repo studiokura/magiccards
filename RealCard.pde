@@ -6,6 +6,36 @@ class RealCard {
 
   RealCard(String _name) {
     name = _name;
+    for (int i = 0; i < cards.length; i++) {
+      //int id = cards[i].getChild("set").getInt("muId");
+      String coloring = cards[i].getChild("manacost").getContent();
+      String name = cards[i].getChild("name").getContent();
+      //println(i + " of " + cards.length + ": checking for a match for " + _name + " in " + name + "...");
+      if (name.equals(_name)) {
+        println("match! " + name);
+        XML sets[] = cards[i].getChildren("set");
+        if (sets.length>0) {
+          for (int s = sets.length-1; s >= 0; s--) {
+            XML set = sets[s];
+            String[] attributes = set.listAttributes();
+            for (int j = 0; j < attributes.length; j++) {
+              if (attributes[j].equals("muId")) {
+                println(set.toString());
+                muid = int(set.getString("muId"));
+                println("muid=" + muid);
+                this.createURL();
+                println(pictureImageURL);
+                pictureImage = loadImage(pictureImageURL);
+                break;
+              }
+            }
+            break;
+          }
+        }
+        break;
+      }
+      //println(", " + coloring + ", " + name);
+    }
   }
 
   void createURL() {

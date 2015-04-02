@@ -44,49 +44,22 @@ void setup() {
     //int id = cards[i].getChild("set").getInt("muId");
     String coloring = cards[i].getChild("manacost").getContent();
     String name = cards[i].getChild("name").getContent();
-    println(", " + coloring + ", " + name);
+    //println(", " + coloring + ", " + name);
   }
   println(cards.length);
   aCard = new RealCard("Selsenya Sentry");
-  aCard.muid = 265382;
-  aCard.createURL();
-  aCard.pictureImage = loadImage(aCard.pictureImageURL);
   hand.add(aCard);
-
-  aCard = new RealCard("Forest");
-  aCard.muid = 289326;
-  aCard.createURL();
-  aCard.pictureImage = loadImage(aCard.pictureImageURL);
-  hand.add(aCard);
-
   aCard = new RealCard("Centaur's Herald");
-  aCard.muid = 265387;
-  aCard.createURL();
-  aCard.pictureImage = loadImage(aCard.pictureImageURL);
   hand.add(aCard);
-
+  aCard = new RealCard("Centaur's Herald");
+  hand.add(aCard);
   aCard = new RealCard("Rubbleback Rhino");
-  aCard.muid = 265396;
-  aCard.createURL();
-  aCard.pictureImage = loadImage(aCard.pictureImageURL);
   hand.add(aCard);
-
-  aCard = new RealCard("Plains");
-  aCard.muid = 289312;
-  aCard.createURL();
-  aCard.pictureImage = loadImage(aCard.pictureImageURL);
-  hand.add(aCard);
-
-  aCard = new RealCard("Forest");
-  aCard.muid = 289326;
-  aCard.createURL();
-  aCard.pictureImage = loadImage(aCard.pictureImageURL);
-  hand.add(aCard);
-
   aCard = new RealCard("Coursers' Accord");
-  aCard.muid = 253639;
-  aCard.createURL();
-  aCard.pictureImage = loadImage(aCard.pictureImageURL);
+  hand.add(aCard);
+  aCard = new RealCard("Forest");
+  hand.add(aCard);
+  aCard = new RealCard("Plains");
   hand.add(aCard);
 }
 void draw() {
@@ -95,19 +68,23 @@ void draw() {
   pushMatrix();
   translate(10, 210);
   rotate(radians(-30));
-  image(hand.get(0).pictureImage, 0, 0);
+  if(hand.get(0).pictureImage.width > 1){
+    image(hand.get(0).pictureImage, 0, 0);
+  }
   popMatrix();
   pushMatrix();
   translate(110, 155);
   rotate(radians(-20));
-  image(hand.get(1).pictureImage, 0, 0);
+  if(hand.get(1).pictureImage.width > 1){
+    image(hand.get(1).pictureImage, 0, 0);
+  }
   popMatrix();
   pushMatrix();
   translate(210, 120);
   rotate(radians(-10));
   image(hand.get(2).pictureImage, 0, 0);
   popMatrix();
-  pushMatrix();
+  /*pushMatrix();
   translate(310, 100);
   rotate(radians(0));
   image(hand.get(3).pictureImage, 0, 0);
@@ -126,6 +103,6 @@ void draw() {
   translate(610, 150);
   rotate(radians(30));
   image(hand.get(6).pictureImage, 0, 0);
-  popMatrix();
+  popMatrix();*/
 }
 
